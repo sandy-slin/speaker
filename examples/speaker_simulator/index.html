@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Facebook: Get Friends</title>
+  <style type="text/css">
+    body{margin: 0; padding: 10px; font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+    h1{padding: 10px 0; font-size: 18px; font-weight: normal; color: #444; border-bottom: 1px solid #ccc; margin: 0 0 20px;}
+    h2{padding: 10px; font-size:14px; font-weight:normal; color:rgb(45,68,134);}
+    button{padding:20px; font-size:16px; background: rgb(45,68,134);color:#eee;border:none;}
+  </style>
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+  
+  <script type="text/javascript">
+  var ROOT_URL = "http://localhost:8888";
+  function get_playstatus() {  
+    $.getJSON(ROOT_URL + "/play_control/?callback=?",  
+	    function(data) {
+	      $('#play_control').text(data.playstatus);  
+	    });  
+  } 
+  </script>
+
+</head>
+<body>
+<h1 id="header"><strong>Network Speaker</strong></h1>
+<div style="text-align:left;">
+	<button id="play_control" onclick="get_playstatus()">Stop</button>
+</div>
+</body>
+</html>
